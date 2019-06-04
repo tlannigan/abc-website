@@ -1,0 +1,89 @@
+﻿@model ca.abcmufflerandhitch.Models.Products.Exhaust
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row justify-content-center">
+    <div class="col-sm-8 col-lg-6 card bg-dark px-0">
+
+        <div class="card-body text-white">
+            <h1 class="card-title">Edit Exhaust</h1>
+
+            <form asp-action="Edit" class="text-white" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ProductID" />
+                <div class="form-group">
+                    <label asp-for="ProductName" class="control-label"></label>
+                    <input asp-for="ProductName" class="form-control" autofocus />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductDescription" class="control-label"></label>
+                    <textarea asp-for="ProductDescription" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductType.ProductTypeName" class="control-label"></label>
+                    <select asp-for="ProductTypeID" class="form-control" asp-items="ViewBag.ProductTypeID"></select>
+                    <span asp-validation-for="ProductTypeID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Brand.BrandName" class="control-label"></label>
+                    <select asp-for="BrandID" class="form-control" asp-items="ViewBag.BrandID"></select>
+                    <span asp-validation-for="BrandID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductCode" class="control-label"></label>
+                    <input asp-for="ProductCode" class="form-control" />
+                    <span asp-validation-for="ProductCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VehicleModel" class="control-label"></label>
+                    <input asp-for="VehicleModel" class="form-control" />
+                    <span asp-validation-for="VehicleModel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiameterInches" class="control-label"></label>
+                    <input asp-for="DiameterInches" class="form-control" />
+                    <span asp-validation-for="DiameterInches" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DegreeBend" class="control-label"></label>
+                    <input asp-for="DegreeBend" class="form-control" />
+                    <span asp-validation-for="DegreeBend" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Material" class="control-label"></label>
+                    <input asp-for="Material" class="form-control" />
+                    <span asp-validation-for="Material" class="text-danger"></span>
+                </div>
+                <label>Product Image</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" id="file" name="file" accept=".jpg, .png, .webp" class="custom-file-input" />
+                        <label for="file" id="fileLabel" class="custom-file-label">Choose image</label>
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="InStock" /> @Html.DisplayNameFor(model => model.InStock)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" /><a class="btn btn-dark" asp-action="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

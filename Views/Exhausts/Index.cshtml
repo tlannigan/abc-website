@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ca.abcmufflerandhitch.Models.Products.Exhaust>
+
+@{
+    ViewData["Title"] = "Manage Exhaust";
+}
+
+<div class="row justify-content-center align-content-between">
+    <div class="col d-flex flex-column justify-content-between">
+
+        <h1>Exhaust Index</h1>
+
+        <div class="row justify-content-between my-3">
+            <div class="col-3">
+                <a class="btn btn-success" asp-action="Create">Create New&nbsp;&nbsp;<i class="fas fa-plus"></i></a>
+            </div>
+            <div class="col-5">
+                <input type="text" id="tableSearch" class="form-control" placeholder="Search..." autofocus />
+            </div>
+        </div>
+        <table class="table table-dark table-striped table-hover text-nowrap" id="product-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Brand)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductType.ProductTypeName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VehicleModel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiameterInches)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DegreeBend)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InStock)
+                    </th>
+                    <th>Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brand.BrandName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductType.ProductTypeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VehicleModel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiameterInches)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DegreeBend)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InStock)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <script>
+            let controlTarget = [0];
+            let truncTargets = [];
+            let priorityTargets = [0, 1, 2, 3, -2, -1];
+        </script>
+    </div>
+</div>

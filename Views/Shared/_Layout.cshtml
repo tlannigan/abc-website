@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABC Muffler & Hitch - @ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+            crossorigin="anonymous"
+            integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          crossorigin="anonymous"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-8 pt-3">
+                <div id="banner">
+                    <a asp-controller="Home" asp-action="Index">
+                        <picture>
+                            <source srcset="~/img/logo.png" />
+                            <img src="~/img/logo.png" />
+                        </picture>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center sticky-top">
+            <div class="col-12 col-xl-8">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navToggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navToggler">
+                        <ul class="navbar-nav d-flex flex-fill justify-content-around">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="exhaustDropdown" role="button" data-toggle="dropdown">
+                                    Exhaust
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Exhaust Repairs</a>
+                                    <a class="dropdown-item" href="#">Mufflers</a>
+                                    <a class="dropdown-item" href="#">Catalytic Converters</a>
+                                    <a class="dropdown-item" href="#">Exhaust Kits</a>
+                                    <a class="dropdown-item" href="#">Custom-Made Exhaust</a>
+                                    <a class="dropdown-item" href="#">DPF Deletes</a>
+                                    <a class="dropdown-item" href="#">Exhaust Tips</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="towingDropdown" role="button" data-toggle="dropdown">
+                                    Towing
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Receiver Hitches</a>
+                                    <a class="dropdown-item" href="#">Fifth Wheel Hitches</a>
+                                    <a class="dropdown-item" href="#">Gooseneck Hitches</a>
+                                    <a class="dropdown-item" href="#">Weight Distribution Systems</a>
+                                    <a class="dropdown-item" href="#">Flat Towing Systems</a>
+                                    <a class="dropdown-item" href="#">Electrical Installs</a>
+                                    <a class="dropdown-item" href="#">Suspension Systems</a>
+                                    <a class="dropdown-item" href="#">Hitch Accessories</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Accessories
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Garage Sale
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Gallery
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Contact Us
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-8">
+                <main class="bg-secondary container-fluid">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-8">
+                <div id="info" class="bg-dark">
+
+                    <div class="container-fluid">
+                        <div class="row justify-content-center p-5">
+
+                            <div class="col-10 col-sm-5 col-lg-3" id="hours">
+                                <h4>Hours</h4>
+                                <table class="table table-responsive table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>Mon</td>
+                                            <td>8am - 5pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tues</td>
+                                            <td>8am - 5pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wed</td>
+                                            <td>8am - 5pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thur</td>
+                                            <td>8am - 5pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fri</td>
+                                            <td>8am - 5pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sat</td>
+                                            <td>8am - 12pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sun</td>
+                                            <td>Closed</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="col-10 col-sm-5 col-lg-4" id="contact">
+                                <h4>Contact</h4>
+                                <ul>
+                                    <li><strong>ABC Muffler & Hitch</strong></li>
+                                    <li>4910 - 84 Ave NW</li>
+                                    <li>Edmonton AB  T6B 2S9</li>
+                                    <li><br /></li>
+                                    <li>780.440.1661</li>
+                                    <li><a href="mailto:info@abcmufflerandhitch.ca" target="_blank">Email us!</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-10 col-lg-5" id="location">
+                                <div class="gmap">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2372.117146044379!2d-113.41875818415498!3d53.51996468001582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a01876a62d4bef%3A0x353c73ab2cef0929!2sA+B+C+Muffler+%26+Hitch+Shop+Ltd!5e0!3m2!1sen!2sca!4v1556739831139!5m2!1sen!2sca" 
+                                            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-8">
+                <div id="footer" class="bg-dark">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery"
+            crossorigin="anonymous"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+            crossorigin="anonymous"
+            integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4=">
+    </script>
+    <script src="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
+    <script>
+
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5cc8f0a1d07d7e0c63915b01/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+
+    </script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

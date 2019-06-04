@@ -1,0 +1,87 @@
+﻿@model ca.abcmufflerandhitch.Models.Products.Exhaust
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row justify-content-center">
+    <div class="col-sm-8 col-lg-6 card bg-dark px-0">
+
+        <div class="card-body text-white">
+            <h1 class="card-title">Create Exhaust</h1>
+
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ProductName" class="control-label"></label>
+                    <input asp-for="ProductName" class="form-control" autofocus />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductDescription" class="control-label"></label>
+                    <input asp-for="ProductDescription" class="form-control" />
+                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductType.ProductTypeName" class="control-label"></label>
+                    <select asp-for="ProductTypeID" class="form-control" asp-items="ViewBag.ProductTypeID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BrandID" class="control-label"></label>
+                    <select asp-for="BrandID" class="form-control" asp-items="ViewBag.BrandID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductCode" class="control-label"></label>
+                    <input asp-for="ProductCode" class="form-control" />
+                    <span asp-validation-for="ProductCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VehicleModel" class="control-label"></label>
+                    <input asp-for="VehicleModel" class="form-control" />
+                    <span asp-validation-for="VehicleModel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiameterInches" class="control-label"></label>
+                    <input asp-for="DiameterInches" class="form-control" />
+                    <span asp-validation-for="DiameterInches" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DegreeBend" class="control-label"></label>
+                    <input asp-for="DegreeBend" class="form-control" />
+                    <span asp-validation-for="DegreeBend" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Material" class="control-label"></label>
+                    <input asp-for="Material" class="form-control" />
+                    <span asp-validation-for="Material" class="text-danger"></span>
+                </div>
+                <label>Product Image</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" id="file" name="file" accept=".jpg, .png, .webp" class="custom-file-input" />
+                        <label for="file" id="fileLabel" class="custom-file-label">Choose image</label>
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="InStock" /> @Html.DisplayNameFor(model => model.InStock)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
